@@ -1,4 +1,4 @@
-module github.com/ApresFiux/artenc
+module github.com/apresfiux/artenc
 
 go 1.16
 
