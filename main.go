@@ -13,6 +13,7 @@ import (
 
 func Encrypt(Str string, keyfile string) []byte {
 	data, err := ioutil.ReadFile(keyfile)
+	customloghandler.LogError(err, true, false)
 	plaintext := []byte(Str)
 	ciphertext, err := EncryptAES(data, plaintext)
 	customloghandler.LogError(err, true, false)
@@ -21,6 +22,7 @@ func Encrypt(Str string, keyfile string) []byte {
 
 func Decrypt(ciphertext string, keyfile string) string {
 	data, err := ioutil.ReadFile(keyfile)
+	customloghandler.LogError(err, true, false)
 	result, err := DecryptAES(data, []byte(ciphertext))
 	customloghandler.LogError(err, true, false)
 	return string(result)
