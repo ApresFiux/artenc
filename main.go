@@ -22,9 +22,9 @@ func Encrypt(Str string, keyfile string) []byte {
 
 func Decrypt(ciphertext string, keyfile string) string {
 	data, err := ioutil.ReadFile(keyfile)
-	customloghandler.LogError(err, true, false)
+	customloghandler.LogError(err, true, true)
 	result, err := DecryptAES(data, []byte(ciphertext))
-	customloghandler.LogError(err, true, false)
+	customloghandler.LogError(err, true, true)
 	return string(result)
 }
 
